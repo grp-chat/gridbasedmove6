@@ -27,51 +27,51 @@ const getPlayerObjectKey = playerId => {
 
 const gridMatrix = [
     [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-    [1,0,0,0,1,0,0,20,0,0,20,0,0,20,0,0,20,0,20,0,0,0,20,0,0,20,0,0,0,0,1,20,20,20,20,1],
-    [1,0,0,0,1,0,20,1,0,0,1,1,1,20,1,1,1,1,1,20,0,1,1,1,20,1,0,1,20,0,20,20,20,20,20,1],
-    [1,0,0,0,1,0,1,20,1,0,0,20,0,1,20,20,20,20,20,20,1,20,20,0,1,20,20,20,1,0,1,20,20,20,20,1],
-    [1,0,1,1,20,0,1,20,1,0,20,1,20,1,20,20,20,1,1,1,20,20,20,20,1,20,20,20,1,0,0,1,1,1,20,1],
-    [1,0,0,0,0,20,1,20,1,20,0,1,0,1,20,20,1,20,20,20,20,1,20,20,1,20,20,20,1,20,1,20,20,20,20,1],
-    [1,0,1,1,20,1,0,20,0,0,20,1,20,20,1,1,20,20,1,1,1,20,20,20,1,20,20,20,1,0,1,20,20,20,20,1],
-    [1,0,0,20,1,0,20,0,20,1,20,0,0,1,20,20,20,1,20,20,20,1,20,20,20,20,20,20,1,0,20,1,20,1,20,1],
-    [1,0,0,0,1,20,0,20,0,20,1,20,20,1,20,1,1,20,20,20,20,20,1,1,1,1,1,1,20,0,0,20,1,20,20,1],
-    [1,0,0,0,0,0,20,0,20,0,1,0,0,1,20,20,20,1,20,20,20,20,20,20,20,20,20,20,20,1,0,0,1,20,20,1],
-    [1,0,0,0,0,20,0,20,0,20,20,1,20,1,20,20,20,0,1,20,20,1,20,1,20,1,20,1,20,20,1,0,20,20,0,1],
-    [1,0,0,0,0,0,20,0,20,0,1,0,0,1,20,20,20,1,20,20,20,20,20,20,20,20,20,20,20,1,0,0,1,20,20,1],
-    [1,0,0,0,1,20,0,20,0,20,1,20,20,1,20,1,1,20,20,20,20,20,1,1,1,1,1,1,20,0,0,20,1,20,20,1],
-    [1,0,0,20,1,0,20,0,20,1,20,0,0,1,20,20,20,1,20,20,20,1,20,20,20,20,20,20,1,0,20,1,20,1,20,1],
-    [1,0,1,1,20,1,0,20,0,0,20,1,20,20,1,1,20,20,1,1,1,20,20,20,1,20,20,20,1,0,1,20,20,20,20,1],
-    [1,0,0,0,0,20,1,20,1,20,0,1,0,1,20,20,1,20,20,20,20,1,20,20,1,20,20,20,1,20,1,20,20,20,20,1],
-    [1,0,1,1,20,0,1,20,1,0,20,1,20,1,20,20,20,1,1,1,20,20,20,20,1,20,20,20,1,0,0,1,1,1,20,1],
-    [1,0,0,0,1,0,1,20,1,0,0,20,0,1,20,20,20,20,20,20,1,20,20,0,1,20,20,20,1,0,1,20,20,20,20,1],
-    [1,0,0,0,1,0,20,1,0,0,1,1,1,20,1,1,1,1,1,20,0,1,1,1,20,1,0,1,20,0,20,20,20,20,20,1],
-    [1,0,0,0,1,0,0,20,0,0,20,0,0,20,0,0,20,0,20,0,0,0,20,0,0,20,0,0,0,0,1,20,20,20,20,1],
+    [1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,20,20,0,0,1],
+    [1,0,0,0,1,0,0,1,0,0,1,1,1,0,1,1,1,1,1,0,0,1,1,1,20,1,0,1,20,0,20,20,20,20,0,1],
+    [1,0,0,0,1,0,1,0,1,0,0,0,0,1,0,0,0,0,0,0,1,20,20,0,1,0,0,20,1,0,1,20,20,20,0,1],
+    [1,0,1,1,0,0,1,0,1,0,0,1,0,1,0,0,0,1,1,1,20,20,20,20,1,0,0,20,1,0,0,1,1,1,0,1],
+    [1,0,0,0,0,0,1,0,1,0,0,1,0,1,0,0,1,20,20,20,20,1,20,20,1,20,0,20,1,20,1,20,20,20,0,1],
+    [1,0,1,1,0,1,0,0,0,0,0,1,0,0,1,1,20,20,1,1,1,20,20,20,1,20,0,20,1,0,1,20,20,20,0,1],
+    [1,0,0,0,1,0,0,0,0,1,0,0,0,1,20,20,20,1,20,20,20,1,20,20,20,20,0,0,1,0,20,1,20,1,0,1],
+    [1,0,0,0,1,0,0,0,0,0,1,0,0,1,20,1,1,20,20,20,20,20,1,1,1,1,1,1,20,0,0,20,1,20,0,1],
+    [1,0,0,0,0,0,0,0,0,0,1,0,0,1,20,20,20,1,20,20,20,20,20,20,20,20,20,20,20,1,0,0,1,20,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,1,0,1,20,20,20,0,1,20,20,1,20,1,20,1,20,1,20,20,1,0,20,20,0,1],
+    [1,0,0,0,0,0,0,0,0,0,1,0,0,1,20,20,20,1,20,20,20,20,20,20,20,20,20,20,20,1,0,0,1,20,0,1],
+    [1,0,0,0,1,0,0,0,0,0,1,0,0,1,20,1,1,20,20,20,20,20,1,1,1,1,1,1,20,0,0,20,1,20,0,1],
+    [1,0,0,0,1,0,0,0,0,1,0,0,0,1,20,20,20,1,20,20,20,1,20,0,0,0,0,0,1,0,20,1,20,1,0,1],
+    [1,0,1,1,0,1,0,0,0,0,0,1,0,0,1,1,20,20,1,1,1,20,20,20,1,0,0,0,1,0,1,20,20,20,0,1],
+    [1,0,0,0,0,0,1,0,1,0,0,1,0,1,0,0,1,20,20,20,20,1,20,20,1,0,0,0,1,20,1,20,20,20,0,1],
+    [1,0,1,1,0,0,1,0,1,0,0,1,0,1,0,0,0,1,1,1,20,20,20,20,1,0,0,0,1,0,0,1,1,1,0,1],
+    [1,0,0,0,1,0,1,0,1,0,0,0,0,1,0,0,0,0,0,0,1,20,20,0,1,0,0,0,1,0,1,0,0,0,0,1],
+    [1,0,0,0,1,0,0,1,0,0,1,1,1,0,1,1,1,1,1,0,0,1,1,1,20,1,0,1,20,0,20,0,0,0,0,1],
+    [1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1],
     [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
-            
+                
     ];
 
 const gridMatrix2 = [
     [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0],
-    [1,20,0,0,20,20,20,20,20,20,20,20,1,0,1,20,20,20,20,0,0,0,0,0,20,1,0,1,0,0,0,0,0,0,0,0],
+    [1,0,0,0,0,0,0,0,0,0,0,0,1,0,1,20,20,20,20,0,0,0,0,0,20,1,0,1,0,0,0,0,0,0,0,0],
     [1,0,0,0,1,1,1,1,1,1,1,1,1,20,1,20,20,20,20,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0],
     [1,0,0,0,1,20,20,20,20,20,20,20,20,20,1,20,20,20,20,0,0,0,0,0,20,1,0,1,0,0,0,0,0,0,0,0],
     [1,0,0,0,1,20,1,1,1,1,1,1,1,20,1,1,1,1,1,1,1,1,0,0,0,1,0,1,0,0,0,0,0,0,0,0],
     [1,0,0,0,1,20,20,20,20,20,20,20,1,20,20,20,20,20,20,20,0,0,0,0,20,1,0,1,0,0,0,0,0,0,0,0],
     [1,0,0,0,1,1,1,1,1,1,1,20,1,1,1,1,1,1,1,1,1,1,20,0,0,1,0,1,0,0,0,0,0,0,0,0],
-    [1,0,0,0,1,20,20,20,20,20,20,20,1,20,20,20,1,20,20,20,1,0,0,0,20,1,0,1,0,0,0,0,0,0,0,0],
-    [1,0,0,0,1,20,20,20,20,20,20,20,1,20,1,20,1,20,1,20,1,0,20,0,0,1,0,1,0,0,0,0,0,0,0,0],
-    [1,0,0,0,1,20,20,20,20,20,20,20,1,20,1,20,1,20,1,20,1,0,0,0,20,1,0,1,0,0,0,0,0,0,0,0],
-    [1,0,0,0,1,20,20,20,20,20,0,20,1,20,1,20,1,20,1,20,1,0,0,20,0,1,0,1,0,0,0,0,0,0,0,0],
-    [1,0,0,0,1,1,1,1,1,1,1,20,1,20,1,20,1,20,1,20,1,0,0,0,20,1,0,1,0,0,0,0,0,0,0,0],
-    [1,0,0,0,1,20,20,20,20,20,20,20,1,20,1,20,1,20,1,20,1,1,1,20,0,1,0,1,0,0,0,0,0,0,0,0],
-    [1,0,0,0,1,20,1,1,1,1,1,1,1,20,1,20,1,20,1,20,1,0,1,0,20,1,0,1,0,0,0,0,0,0,0,0],
-    [1,0,0,0,1,20,20,20,20,20,20,20,20,20,1,20,20,20,1,20,0,0,0,20,0,1,0,1,0,0,0,0,0,0,0,0],
+    [1,0,0,0,1,20,20,20,20,20,20,20,1,20,20,20,1,0,0,0,1,0,0,0,20,1,0,1,0,0,0,0,0,0,0,0],
+    [1,0,0,0,1,20,20,20,20,20,20,20,1,20,1,20,1,0,1,0,1,0,20,0,0,1,0,1,0,0,0,0,0,0,0,0],
+    [1,0,0,0,1,20,20,20,20,20,20,20,1,20,1,20,1,0,1,0,1,0,0,0,20,1,0,1,0,0,0,0,0,0,0,0],
+    [1,0,0,0,1,20,20,20,20,20,0,20,1,20,1,20,1,20,1,0,1,0,0,20,0,1,0,1,0,0,0,0,0,0,0,0],
+    [1,0,0,0,1,1,1,1,1,1,1,20,1,20,1,20,1,20,1,0,1,0,0,0,20,1,0,1,0,0,0,0,0,0,0,0],
+    [1,0,0,0,1,20,20,20,20,20,20,20,1,20,1,20,1,20,1,0,1,1,1,20,0,1,0,1,0,0,0,0,0,0,0,0],
+    [1,0,0,0,1,20,1,1,1,1,1,1,1,20,1,20,1,20,1,0,1,0,1,0,20,1,0,1,0,0,0,0,0,0,0,0],
+    [1,0,0,0,1,20,20,20,20,20,20,20,20,20,1,20,20,20,1,0,0,0,0,20,0,1,0,1,0,0,0,0,0,0,0,0],
     [1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,20,1,0,1,0,0,0,0,0,0,0,0],
-    [1,0,20,0,20,0,20,0,20,0,20,0,0,20,1,0,0,0,0,0,0,0,0,20,0,1,0,1,0,0,0,0,0,0,0,0],
-    [1,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,20,0,20,0,20,0,20,0,20,1,0,1,0,0,0,0,0,0,0,0],
-    [1,20,0,20,0,20,0,20,0,20,0,20,1,20,0,20,0,20,0,20,0,20,0,20,0,1,0,1,0,0,0,0,0,0,0,0],
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0]
-                
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0],
+    [1,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,20,1,0,1,0,0,0,0,0,0,0,0],
+    [1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,20,0,1,0,1,0,0,0,0,0,0,0,0],
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0],
+                            
 ];
 
 const gridMatrix3 = [
@@ -96,46 +96,114 @@ const gridMatrix3 = [
                 
 ];
 
+const gridMatrix4 = [
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [1,20,20,20,0,0,20,20,0,0,20,20,20,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [1,20,20,20,0,0,20,20,0,0,20,20,20,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [1,20,20,20,0,0,20,20,0,0,20,20,20,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [1,0,0,0,0,0,20,20,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [1,0,0,0,0,0,20,20,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [1,0,0,0,0,0,20,20,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [1,0,0,0,0,0,20,20,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [1,20,20,20,20,20,20,0,20,20,20,20,20,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [1,0,0,0,0,0,20,20,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [1,0,0,0,0,0,20,20,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [1,0,0,0,0,0,20,20,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [1,0,0,0,0,0,20,20,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [1,20,20,20,0,0,20,20,0,0,20,20,20,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [1,20,20,20,0,0,20,20,0,0,20,20,20,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [1,20,20,20,0,0,20,20,0,0,20,20,20,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    
+];
+
 
 //##############################################################################################################
 
 class GridSystem {
-    constructor(matrix, matrix2, matrix3) {
+    constructor(matrix, matrix2, matrix3, matrix4) {
         this.matrix = matrix;
         this.matrixMain = matrix;
         this.matrix2 = matrix2;
         this.matrix3 = matrix3;
+        this.matrix4 = matrix4;
         this.cellSize = 40;
         this.padding = 2;
-        this.startingSteps = 8;
+        this.startingSteps = 100;
         this.winY = 11;
         this.winX = 37;
         this.walletMax = 1000;
+
         this.allAreas = {
             "mainArea": this.matrixMain,
             "area2": this.matrix2,
+            "area2e2": this.matrix2,
             "mainArea2": this.matrixMain,
-            "area3": this.matrix3
+            "area3": this.matrix3,
+            "area3e2": this.matrix3,
+            "area4": this.matrix4,
+            "area4e2": this.matrix4
         }
         this.entrances = {
             "mainArea": { x: 29, y: 2},
-            "area2": { x: 2, y: 3},
             "mainArea2": {x: 29, y: 18},
-            "area3": {x: 25, y: 15}
+
+            "area2": { x: 2, y: 3},
+            "area2e2": { x: 21, y: 10},
+            
+            "area3": {x: 25, y: 15},
+            "area3e2": {x: 2, y: 3},
+            
+            "area4": {x: 2, y: 5},
+            "area4e2": {x: 11, y: 12}
         }
+        this.area2Entance = ["area2", this.entrances["area2"].x, this.entrances["area2"].y].join(",");
+        this.area2e2Entance = ["area2e2", this.entrances["area2e2"].x, this.entrances["area2e2"].y].join(",");
+        this.area3Entance = ["area3", this.entrances["area3"].x, this.entrances["area3"].y].join(",");
+        this.area3e2Entance = ["area3e2", this.entrances["area3e2"].x, this.entrances["area3e2"].y].join(",");
+        this.area4Entance = ["area4", this.entrances["area4"].x, this.entrances["area4"].y].join(",");
+        this.area4e2Entance = ["area4e2", this.entrances["area4e2"].x, this.entrances["area4e2"].y].join(",");
+        this.mainAreaEntance = ["mainArea", this.entrances["mainArea"].x, this.entrances["mainArea"].y].join(",");
+        this.mainArea2Entance = ["mainArea2", this.entrances["mainArea2"].x, this.entrances["mainArea2"].y].join(",");
+        this.allDoorsCoordinates = {
+            "area2,1,3": "mainArea",
+            "area2,21,11": "area4",
+            "mainArea,29,1": "area2",
+            //"mainArea2,29,1": "area2",
+            "mainArea,29,19": "area3",
+            //"mainArea2,29,19": "area3",
+            "area3,24,15": "mainArea2",     
+            "area3,1,3": "area4e2",     
+            "area4,1,5": "area2e2",     
+            "area4,12,12": "area3e2",     
+            test() {console.log("test")}
+        }
+        this.cdm = {
+            area1: [{x:2,y:10},{x:17,y:10},{x:20,y:2},{x:20,y:18},{x:23,y:3},{x:23,y:17},{x:30,y:4},{x:30,y:16},{x:34,y:10}],
+            area2: [{x:1,y:8},{x:10,y:10},{x:13,y:1},{x:21,y:13}],
+            area3: [{x:16,y:2}],
+            area4: [{x:7,y:8}]
+        }
+        this.cdmByArea = {
+            "mainArea": this.cdm.area1,
+            "mainArea2": this.cdm.area1,
+            "area2": this.cdm.area2,
+            "area3": this.cdm.area3,
+            "area4": this.cdm.area4
+        }     
 
         this.extraArr = ["TCR", "LXR", "LK", "JHA", "JV", "JL", "SZF", "H", "TJY", "KX"];
 
-        this.p1 = { x: 1, y: 1, lable: 2, id: this.extraArr[0], steps: 1000, area: "mainArea", wallet: 0, total: 0 };
+        this.p1 = { x: 1, y: 1, lable: 2, id: this.extraArr[0], steps: 1000, area: "area3", wallet: 0, total: 0 };
 
-        this.p2 = { x: 3, y: 1, lable: 3, id: this.extraArr[1], steps: this.startingSteps, area: "mainArea", wallet: 0, total: 0 };
-        this.p3 = { x: 2, y: 1, lable: 4, id: this.extraArr[2], steps: this.startingSteps, area: "mainArea", wallet: 0, total: 0 };
-        this.p4 = { x: 3, y: 3, lable: 5, id: this.extraArr[3], steps: this.startingSteps, area: "mainArea", wallet: 0, total: 0 };
-        this.p5 = { x: 3, y: 17, lable: 6, id: this.extraArr[4], steps: this.startingSteps, area: "mainArea", wallet: 0, total: 0 };
+        this.p2 = { x: 20, y: 14, lable: 3, id: this.extraArr[1], steps: this.startingSteps, area: "area2", wallet: 0, total: 2500 };
+        this.p3 = { x: 23, y: 15, lable: 4, id: this.extraArr[2], steps: this.startingSteps, area: "area2", wallet: 0, total: 2300 };
+        this.p4 = { x: 22, y: 18, lable: 5, id: this.extraArr[3], steps: this.startingSteps, area: "area2", wallet: 0, total: 1400 };
+        this.p5 = { x: 17, y: 9, lable: 6, id: this.extraArr[4], steps: this.startingSteps, area: "area2", wallet: 0, total: 3600 };
 
-        this.p6 = { x: 3, y: 19, lable: 7, id: this.extraArr[5], steps: this.startingSteps, area: "mainArea", wallet: 0, total: 0 };
-        this.p7 = { x: 3, y: 18, lable: 8, id: this.extraArr[6], steps: this.startingSteps, area: "mainArea", wallet: 0, total: 0 };
-        this.p8 = { x: 1, y: 19, lable: 9, id: this.extraArr[7], steps: this.startingSteps, area: "mainArea", wallet: 0, total: 0 };
+        this.p6 = { x: 23, y: 13, lable: 7, id: this.extraArr[5], steps: this.startingSteps, area: "mainArea", wallet: 0, total: 2000 };
+        this.p7 = { x: 34, y: 12, lable: 8, id: this.extraArr[6], steps: this.startingSteps, area: "mainArea", wallet: 0, total: 5300 };
+        this.p8 = { x: 17, y: 19, lable: 9, id: this.extraArr[7], steps: this.startingSteps, area: "mainArea", wallet: 0, total: 0 };
         this.p9 = { x: 2, y: 12, lable: 10, id: this.extraArr[8], steps: 300, area: "mainArea", wallet: 0, total: 0 };
         this.p10 = { x: 2, y: 11, lable: 11, id: this.extraArr[9], steps: 300, area: "mainArea", wallet: 0, total: 0 };
 
@@ -145,9 +213,19 @@ class GridSystem {
         this.playersArr.forEach((player) => {
             this.#startingPoint(player);
         });
-
         this.moveSwitch = 0;
         
+    }
+
+    getTheRightMatrix(player) {
+        const entrance = {
+            [this.area2Entance]: player.lable,
+            [this.area3Entance]: player.lable,
+            [this.mainAreaEntance]: player.lable,
+            [this.mainArea2Entance]: player.lable,
+            [this.area4Entance]: player.lable
+        }
+        return entrance;
     }
 
     #startingPoint(plyrSlot) {
@@ -228,42 +306,20 @@ class GridSystem {
 
             //this.allAreas[player.area][this.entrances[player.area].y][this.entrances[player.area].x] = player.lable
 
-            if (player.y === this.entrances["area2"].y && 
-                player.x === this.entrances["area2"].x && 
-                player.area === "area2") {
+            const playerCoordinate = [player.area, player.x, player.y].join(",");
 
-                    this.matrix2[this.entrances[player.area].y][this.entrances[player.area].x] = player.lable;
-            }
+            const entrance = this.getTheRightMatrix(player);
             
-            if (player.y === this.entrances["mainArea"].y && 
-                player.x === this.entrances["mainArea"].x && 
-                (player.area === "mainArea" || player.area === "mainArea2")) {
+            if (entrance[playerCoordinate] === undefined) {return}
 
-                    //console.log("here is the error")
-                    //this.matrixMain[2][17] = player.lable
-                    this.matrixMain[this.entrances["mainArea"].y][this.entrances["mainArea"].x] = player.lable;
-            }
+            this.allAreas[player.area][this.entrances[player.area].y][this.entrances[player.area].x] 
+                = entrance[playerCoordinate];
 
-            if (player.y === this.entrances["mainArea2"].y &&
-                 player.x === this.entrances["mainArea2"].x && 
-                 (player.area === "mainArea" || player.area === "mainArea2")) {
-
-                    
-                    this.matrixMain[this.entrances["mainArea2"].y][this.entrances["mainArea2"].x] = player.lable;
-            }
-            if (player.y === this.entrances["area3"].y && 
-                player.x === this.entrances["area3"].x && 
-                player.area === "area3") {
-
-                    //this.matrix3[3][3] = player.lable
-                    this.matrix3[this.entrances["area3"].y][this.entrances["area3"].x] = player.lable;
-
-            }
         });
     }
 
 
-    transitionToAnotherArea(area, plyrSlot) {
+    transitionToAnotherArea(plyrSlot) {
         this.matrix[plyrSlot.y][plyrSlot.x] = 0;
 
         this.matrix = this.allAreas[plyrSlot.area];
@@ -271,6 +327,15 @@ class GridSystem {
         plyrSlot.x = this.entrances[plyrSlot.area].x;
 
         this.matrix[plyrSlot.y][plyrSlot.x] = plyrSlot.lable;
+
+        const convertArea = {
+            "mainArea2": "mainArea",
+            "area2e2": "area2",
+            "area3e2": "area3",
+            "area4e2": "area4",
+        }
+        if (convertArea[plyrSlot.area] === undefined) {return}
+        plyrSlot.area = convertArea[plyrSlot.area];
 
     }
     transitionToAnotherArea2(area, plyrSlot) {
@@ -296,9 +361,10 @@ class GridSystem {
         var sendGridMatrix1 = this.matrixMain;
         var sendGridMatrix2 = this.matrix2;
         var sendGridMatrix3 = this.matrix3;
+        var sendGridMatrix4 = this.matrix4;
         var playersArr = this.playersArr;
                 
-        io.emit('sendMatrix', { sendGridMatrix1, sendGridMatrix2, sendGridMatrix3, playersArr });
+        io.emit('sendMatrix', { sendGridMatrix1, sendGridMatrix2, sendGridMatrix3, sendGridMatrix4, playersArr });
     }
 
     test() {
@@ -330,12 +396,37 @@ class GridSystem {
         
     }
 
+    dimensionDoors(plyrSlot) {
+
+        const playerCoordinate = [[plyrSlot.area], [plyrSlot.x], [plyrSlot.y]].join(",");
+
+        if (this.allDoorsCoordinates[playerCoordinate] === undefined) {return}
+
+        plyrSlot.area = this.allDoorsCoordinates[playerCoordinate];
+        this.transitionToAnotherArea(plyrSlot);
+        this.emitToUsers();
+
+    }
+
+    depositCash(plyrSlot) {
+
+        this.cdmByArea[plyrSlot.area].forEach((coordinate) => {
+            if (plyrSlot.x === coordinate.x && plyrSlot.y === coordinate.y) {
+                
+                    plyrSlot.total += plyrSlot.wallet;
+                    plyrSlot.wallet = 0;
+
+                    gridSystem.emitToUsers();
+            }
+        });
+    }
+
 }
 
 //##############################################################################################################
 
 
-const gridSystem = new GridSystem(gridMatrix, gridMatrix2, gridMatrix3);
+const gridSystem = new GridSystem(gridMatrix, gridMatrix2, gridMatrix3, gridMatrix4);
 
 cdm = {
     area1: [{x:2,y:10},{x:17,y:10},{x:20,y:2},{x:20,y:18},{x:23,y:3},{x:23,y:17},{x:30,y:4},{x:30,y:16},{x:34,y:10}],
@@ -343,34 +434,8 @@ cdm = {
     area3: {x:16,y:2}
 }
 
-
-// var nickname = "TCR"
-// const obj = {
-//     "area2": {
-//         "area2": {
-//             [nickname]: {
-//                 init: function () {this.run();},
-//                 run: function () {console.log("Yes OK")}
-//             }
-// }
-//     },
-    
-    
-// }
-
-// var peri1 = "area2"
-// var peri2 = "area2"
-// obj[peri1][peri2][nickname].run();
-
-
-
-
-//const theKey = getPlayerObject("TCR")
-
-
 var mindControlMode = false;
 var mindControlledStudent = "";
-
 
 
 io.sockets.on('connection', function (sock) {
@@ -387,20 +452,6 @@ io.sockets.on('connection', function (sock) {
         var sendGridMatrix3 = gridSystem.matrix3;
         sock.emit('loadMatrix', { sendGridMatrix1, sendGridMatrix2, sendGridMatrix3, playersArr });
        
-        // gridSystem.playersArr.forEach((player) => {
-
-        //     if (player.id === sock.id) {
-        //         if (player.area === "area2") {
-        //             var gridMatrix = gridMatrix2;
-        //             io.emit('sendMatrix', { gridMatrix, playersArr });
-        //         } else {
-        //             var gridMatrix = gridSystem.matrixMain
-        //             io.emit('sendMatrix', { gridMatrix, playersArr });
-        //         }
-                
-        //     }
-            
-        // });
 
         sock.on('keyPress', function (data) {
 
@@ -410,75 +461,9 @@ io.sockets.on('connection', function (sock) {
 
                 gridSystem.movePlayer(data, gridSystem[gridSysKey]);
 
-//DOOR========DOOR========DOOR========DOOR========DOOR========DOOR========DOOR========DOOR========DOOR========
-
-                if (gridSystem[gridSysKey].x === 1 && gridSystem[gridSysKey].y === 3 
-                    && gridSystem[gridSysKey].area === "area2") {
-
-                        gridSystem[gridSysKey].area = "mainArea";
-                        gridSystem.transitionToAnotherArea("mainArea", gridSystem[gridSysKey]);
-
-                        gridSystem.emitToUsers();
-                }
-                if (gridSystem[gridSysKey].x === 29 && gridSystem[gridSysKey].y === 1 
-                    && (gridSystem[gridSysKey].area === "mainArea" ||
-                    gridSystem[gridSysKey].area === "mainArea2")) {
-
-                        gridSystem[gridSysKey].area = "area2";
-                        gridSystem.transitionToAnotherArea("area2", gridSystem[gridSysKey]);
-
-                        gridSystem.emitToUsers();
-                }
-                if (gridSystem[gridSysKey].x === 29 && gridSystem[gridSysKey].y === 19 
-                    && (gridSystem[gridSysKey].area === "mainArea" ||
-                    gridSystem[gridSysKey].area === "mainArea2")) {
-
-                        gridSystem[gridSysKey].area = "area3";
-                        gridSystem.transitionToAnotherArea("area3", gridSystem[gridSysKey]);
-
-                        gridSystem.emitToUsers();
-                }
-                if (gridSystem[gridSysKey].x === 24 && gridSystem[gridSysKey].y === 15 
-                    && gridSystem[gridSysKey].area === "area3") {
-
-                        gridSystem[gridSysKey].area = "mainArea2";
-                        gridSystem.transitionToAnotherArea("mainArea2", gridSystem[gridSysKey]);
-
-                        gridSystem.emitToUsers();
-                }
-//DOOR========DOOR========DOOR========DOOR========DOOR========DOOR========DOOR========DOOR========DOOR========
-
-//CDM=========CDM=========CDM=========CDM=========CDM=========CDM=========CDM=========CDM=========CDM=========
-                cdm.area1.forEach((coordinate) => {
-                    if (gridSystem[gridSysKey].x === coordinate.x && gridSystem[gridSysKey].y === coordinate.y 
-                        && (gridSystem[gridSysKey].area === "mainArea"||gridSystem[gridSysKey].area === "mainArea2")) {
-                        
-                            gridSystem[gridSysKey].total += gridSystem[gridSysKey].wallet;
-                            gridSystem[gridSysKey].wallet = 0;
-
-                            gridSystem.emitToUsers();
-                    }
-                });
-                cdm.area2.forEach((coordinate) => {
-                    if (gridSystem[gridSysKey].x === coordinate.x && gridSystem[gridSysKey].y === coordinate.y 
-                        && gridSystem[gridSysKey].area === "area2") {
-                        
-                            gridSystem[gridSysKey].total += gridSystem[gridSysKey].wallet;
-                            gridSystem[gridSysKey].wallet = 0;
-                        
-                            gridSystem.emitToUsers();
-                    }
-                });
-
-                if (gridSystem[gridSysKey].x === cdm.area3.x && gridSystem[gridSysKey].y === cdm.area3.y 
-                    && gridSystem[gridSysKey].area === "area3") {
-                    
-                        gridSystem[gridSysKey].total += gridSystem[gridSysKey].wallet;
-                        gridSystem[gridSysKey].wallet = 0;
-                    
-                        gridSystem.emitToUsers();
-                }
-//CDM=========CDM=========CDM=========CDM=========CDM=========CDM=========CDM=========CDM=========CDM=========
+                gridSystem.dimensionDoors(gridSystem[gridSysKey]);
+                           
+                gridSystem.depositCash(gridSystem[gridSysKey]);
 
                 gridSystem.emitToUsers();
 

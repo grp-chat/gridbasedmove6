@@ -5,15 +5,7 @@ var player1 = new Image();
 
 //player1.src = "https://lh3.googleusercontent.com/10PkSlNxU3SMcIQPGEH0Ius_wV1hiRoTtfEQFvaW_YpzdA7aZrd3LxirFvvLc93ulP_-LgVCSV4yjXpNRVNibx9iQtnebU-Vrg62xhHSQhPDAn_nhE6uBYNyoJ1unD9lVp-3ncMlEw=w2400"
 
-studentsArr = ["TCR", "LXR", "LK", "JHA", "JV", "JL", "SZF", "H", "TJY", "KX"];
-//studentsArr = ["TCR", "LOK", "KSY", "KN", "JT", "CJH", "LSH", "KX", "TJY", "LEN"];
-elementsArr = [];
 
-studentsArr.forEach((student) => {
-    const element = document.getElementById(student+"Steps");
-    element.innerHTML = student
-    elementsArr.push(element);
-});
 //LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
 
 const promptMsg = () => {
@@ -293,7 +285,37 @@ function appendMessage(message) {
 
 }
 
+studentsArr = ["TCR", "LXR", "LK", "JHA", "JV", "JL", "SZF", "H", "TJY", "KX"];
+//studentsArr = ["TCR", "LOK", "KSY", "KN", "JT", "CJH", "LSH", "KX", "TJY", "LEN"];
+elementsArr = [];
 
+studentsArr.forEach((student) => {
+    const element = document.getElementById(student+"Steps");
+    element.innerHTML = student
+    elementsArr.push(element);
+});
+
+
+const nicknameAndArea1 = [nickname, "mainArea"].join(",");
+const nicknameAndArea2 = [nickname, "area2"].join(",");
+const nicknameAndArea3 = [nickname, "area3"].join(",");
+const nicknameAndArea4 = [nickname, "mainArea2"].join(",");
+const nicknameAndArea5 = [nickname, "area4"].join(",");
+
+
+function getAllMatrix (data) {
+
+    const onWhichMatrix = {
+        [nicknameAndArea1]: data.sendGridMatrix1,
+        [nicknameAndArea2]: data.sendGridMatrix2,
+        [nicknameAndArea3]: data.sendGridMatrix3,
+        [nicknameAndArea4]: data.sendGridMatrix1,
+        [nicknameAndArea5]: data.sendGridMatrix4,
+    }
+
+    return onWhichMatrix;
+
+}
 
 class GridSystemClient {
     constructor(matrix) {
@@ -308,7 +330,8 @@ class GridSystemClient {
         this.cdm = {
             area1: [{x:2,y:10},{x:17,y:10},{x:20,y:2},{x:20,y:18},{x:23,y:3},{x:23,y:17},{x:30,y:4},{x:30,y:16},{x:34,y:10}],
             area2: [{x:1,y:8},{x:10,y:10},{x:13,y:1},{x:21,y:13}],
-            area3: {x:16,y:2}
+            area3: [{x:16,y:2}],
+            area4: [{x:7,y:8}]
         }
 
         this.p1 = { color: "grey", lable: 2, id: this.students[0] };
@@ -326,20 +349,21 @@ class GridSystemClient {
         this.p9 = { color: "white", lable: 10, id: this.students[8] };
         this.p10 = { color: "fuchsia", lable: 11, id: this.students[9] };
 
-    
         this.playersArr = [this.p1, this.p2, this.p3, this.p4, this.p5, this.p6, this.p7, this.p8, this.p9, this.p10];
         this.moveSwitch = 0;
+
+        this.items = {
+            1: {color: "#4488FF", playerId: null},
+            20: {color: "#111", playerId: "💰"}
+        }
+        this.details = {
+            [this.items[20].playerId]: {font: "17px Times New Roman", rowValue: 21}
+        }
     }
 
-    #renderPlayer(cellVal) {
+    #setColorAndId(cellVal) {
         let color = "#111";
         let playerId = null;
-
-        if (cellVal === 1) {
-            color = "#4488FF";
-        } else if (cellVal === 20) {
-            playerId = "💰";
-        }
 
         this.playersArr.forEach((player) => {
             if (cellVal === player.lable) {
@@ -348,7 +372,29 @@ class GridSystemClient {
             }
         });
 
+        if(this.items[cellVal] === undefined) { return {color, playerId}; }
+        //if(this.items[cellVal].playerId === undefined) { return {color, playerId}; }
+
+        playerId = this.items[cellVal].playerId
+        color = this.items[cellVal].color
+
         return {color, playerId};
+    }
+
+    #renderItemsAndPlayer(plyrDet, row, col) {
+
+        if (plyrDet.playerId === null) {return}
+
+        this.outlineContext.font = "13px Times New Roman";
+            this.outlineContext.fillStyle = "black";
+            this.outlineContext.fillText(plyrDet.playerId, col * (this.cellSize + this.padding) + 2,
+                row * (this.cellSize + this.padding) + 18);
+
+        if (this.details[plyrDet.playerId] === undefined) {return}
+
+        this.outlineContext.font = this.details[plyrDet.playerId].font;
+            this.outlineContext.fillText(plyrDet.playerId, col * (this.cellSize + this.padding) + 2,
+                row * (this.cellSize + this.padding) + this.details[plyrDet.playerId].rowValue);
     }
 
 
@@ -378,6 +424,64 @@ class GridSystemClient {
 
     }
 
+    colorAndMarkSpots(matrixLength) {
+
+        const cdmCoordinates = {
+            21: {area: this.cdm.area1},
+            20: {area: this.cdm.area2},
+            18: {area: this.cdm.area3},
+            17: {area: this.cdm.area4}        
+        }
+
+        const redDoorCoordinates = {
+            21: {
+                redDoor1: {x:29, y:1},
+                redDoor2: {x:29, y:19}
+            },
+            20: {
+                redDoor1: {x:1, y:3},
+                redDoor2: {x:21, y:11}
+            },
+            18: {
+                redDoor1: {x:24, y:15},
+                redDoor2: {x:1, y:3},
+            },
+            17: {
+                redDoor1: {x:1, y:5},
+                redDoor2: {x:12, y:12}
+            }
+        }
+
+        for (var key in redDoorCoordinates[matrixLength]) {
+            this.outlineContext.fillStyle = "red";
+            this.outlineContext.fillRect(redDoorCoordinates[matrixLength][key].x * (this.cellSize + this.padding),
+            redDoorCoordinates[matrixLength][key].y  * (this.cellSize + this.padding),
+                    this.cellSize, this.cellSize);
+        }
+
+        // this.outlineContext.fillStyle = "red";
+        //     this.outlineContext.fillRect(doorsCoordinates[matrixLength].x * (this.cellSize + this.padding),
+        //         doorsCoordinates[matrixLength].y * (this.cellSize + this.padding),
+        //             this.cellSize, this.cellSize);
+        //     this.outlineContext.fillRect(doorsCoordinates[matrixLength].x * (this.cellSize + this.padding),
+        //         doorsCoordinates[matrixLength].y2 * (this.cellSize + this.padding),
+        //             this.cellSize, this.cellSize);
+
+        //CDM here:
+        cdmCoordinates[matrixLength].area.forEach((coordinate) => {
+            this.outlineContext.fillStyle = "goldenrod";
+            this.outlineContext.fillRect(coordinate.x * (this.cellSize + this.padding),
+                coordinate.y * (this.cellSize + this.padding),
+                this.cellSize, this.cellSize);
+            this.outlineContext.fillStyle = "black";
+            this.outlineContext.font = "10px Times New Roman";
+            this.outlineContext.fillText("CDM", coordinate.x * (this.cellSize + this.padding) + 2,
+                coordinate.y * (this.cellSize + this.padding) + 21);
+        });
+
+
+    }
+
     render() {
         const w = (this.cellSize + this.padding) * this.matrix[0].length - (this.padding);
         const h = (this.cellSize + this.padding) * this.matrix.length - (this.padding);
@@ -386,106 +490,28 @@ class GridSystemClient {
         this.outlineContext.canvas.height = h;
 
         const center = this.#getCenter(w, h);
-        //this.outlineContext.canvas.style.marginLeft = center.x;
-        //console.log(center.y);
+
         this.outlineContext.canvas.style.marginLeft = "10px";
         this.outlineContext.canvas.style.marginTop = "2px";
 
-        /* this.topContext.canvas.style.marginLeft = center.x;
-        this.topContext.canvas.style.marginTop = center.y; */
 
         for (let row = 0; row < this.matrix.length; row++) {
             for (let col = 0; col < this.matrix[row].length; col++) {
                 const cellVal = this.matrix[row][col];
 
-                var plyrDet = this.#renderPlayer(cellVal);
+                var plyrDet = this.#setColorAndId(cellVal);
                 
                 this.outlineContext.fillStyle = plyrDet.color;
                 this.outlineContext.fillRect(col * (this.cellSize + this.padding),
                     row * (this.cellSize + this.padding),
                     this.cellSize, this.cellSize);
 
-                if (plyrDet.playerId != null) {
-                    this.outlineContext.font = "13px Times New Roman";
-                    this.outlineContext.fillStyle = "black";
-                    this.outlineContext.fillText(plyrDet.playerId, col * (this.cellSize + this.padding) + 2,
-                        row * (this.cellSize + this.padding) + 18);
-
-                    if (plyrDet.playerId === "💰") {
-                    this.outlineContext.font = "17px Times New Roman";
-                    this.outlineContext.fillStyle = "black";
-                    this.outlineContext.fillText(plyrDet.playerId, col * (this.cellSize + this.padding) + 2,
-                        row * (this.cellSize + this.padding) + 21);
-                    }
-                }
-
-
+                this.#renderItemsAndPlayer(plyrDet, row, col);
             }
         }
 
-        if (this.matrix.length === 21) {
-            this.outlineContext.fillStyle = "red";
-            this.outlineContext.fillRect(29 * (this.cellSize + this.padding),
-                    1 * (this.cellSize + this.padding),
-                    this.cellSize, this.cellSize);
-            this.outlineContext.fillRect(29 * (this.cellSize + this.padding),
-                    19 * (this.cellSize + this.padding),
-                    this.cellSize, this.cellSize);
+        this.colorAndMarkSpots(this.matrix.length);
 
-            
-            this.cdm.area1.forEach((coordinate) => {
-                this.outlineContext.fillStyle = "goldenrod";
-                this.outlineContext.fillRect(coordinate.x * (this.cellSize + this.padding),
-                    coordinate.y * (this.cellSize + this.padding),
-                    this.cellSize, this.cellSize);
-
-                this.outlineContext.fillStyle = "black";
-                this.outlineContext.font = "10px Times New Roman";
-                this.outlineContext.fillText("CDM", coordinate.x * (this.cellSize + this.padding) + 2,
-                    coordinate.y * (this.cellSize + this.padding) + 21);
-            });
-
-        }
-        
-
-        if (this.matrix.length === 20) {
-            this.outlineContext.fillStyle = "red";
-            this.outlineContext.fillRect(1 * (this.cellSize + this.padding),
-                    3 * (this.cellSize + this.padding),
-                    this.cellSize, this.cellSize);
-
-            this.cdm.area2.forEach((coordinate) => {
-                this.outlineContext.fillStyle = "goldenrod";
-                this.outlineContext.fillRect(coordinate.x * (this.cellSize + this.padding),
-                    coordinate.y * (this.cellSize + this.padding),
-                    this.cellSize, this.cellSize);
-
-                this.outlineContext.fillStyle = "black";
-                this.outlineContext.font = "10px Times New Roman";
-                this.outlineContext.fillText("CDM", coordinate.x * (this.cellSize + this.padding) + 2,
-                    coordinate.y * (this.cellSize + this.padding) + 21);
-            });
-        }
-
-        if (this.matrix.length === 18) {
-            this.outlineContext.fillStyle = "red";
-            this.outlineContext.fillRect(24 * (this.cellSize + this.padding),
-                    15 * (this.cellSize + this.padding),
-                    this.cellSize, this.cellSize);
-
-            this.outlineContext.fillStyle = "goldenrod";
-            this.outlineContext.fillRect(this.cdm.area3.x * (this.cellSize + this.padding),
-                this.cdm.area3.y * (this.cellSize + this.padding),
-                this.cellSize, this.cellSize);
-            this.outlineContext.fillStyle = "black";
-            this.outlineContext.font = "10px Times New Roman";
-            this.outlineContext.fillText("CDM", this.cdm.area3.x * (this.cellSize + this.padding) + 2,
-                this.cdm.area3.y * (this.cellSize + this.padding) + 21);
-        }
-        
-
-        // alert(this.outlineContext.canvas.width)
-        // alert(this.outlineContext.canvas.height)
     }
 }
 
@@ -512,25 +538,17 @@ sock.on('loadMatrix', (data) => {
     elementsArr.forEach((element) => {
         element.innerHTML = data.playersArr[i].id + " Stps: " + data.playersArr[i].steps + "/30 || Wllt: " + data.playersArr[i].wallet + "/1000 || Ttl: " + data.playersArr[i].total;
 
+        const playerMatrix = [data.playersArr[i].id, data.playersArr[i].area].join(",");
 
-        if (data.playersArr[i].area === "mainArea" && data.playersArr[i].id === nickname) {
-            const clientRender = new GridSystemClient(data.sendGridMatrix1);
-            clientRender.render();
+        const onWhichMatrix = getAllMatrix(data);
+
+        if (onWhichMatrix[playerMatrix] === undefined) {
+            i++;
+            return
         }
-        if (data.playersArr[i].area === "mainArea2" && data.playersArr[i].id === nickname) {
-            const clientRender = new GridSystemClient(data.sendGridMatrix1);
-            clientRender.render();
-        }
-        if (data.playersArr[i].area === "area2" && data.playersArr[i].id === nickname) {
-            // var canvas = document.querySelector("canvas");
-            // canvas.parentNode.removeChild(canvas);
-            const clientRender = new GridSystemClient(data.sendGridMatrix2);
-            clientRender.render();
-        }
-        if (data.playersArr[i].area === "area3" && data.playersArr[i].id === nickname) {
-            const clientRender = new GridSystemClient(data.sendGridMatrix3);
-            clientRender.render();
-        }
+
+        const clientRender = new GridSystemClient(onWhichMatrix[playerMatrix]);
+        clientRender.render();
 
         i++;
     });
@@ -547,22 +565,17 @@ sock.on('sendMatrix', (data) => {
     elementsArr.forEach((element) => {
         element.innerHTML = data.playersArr[i].id + " Stps: " + data.playersArr[i].steps + "/30 || Wllt: " + data.playersArr[i].wallet + "/1000 || Ttl: " + data.playersArr[i].total;
 
-        if (data.playersArr[i].area === "mainArea" && data.playersArr[i].id === nickname) {
-            const clientRender = new GridSystemClient(data.sendGridMatrix1);
-            clientRender.render();
+        const playerMatrix = [data.playersArr[i].id, data.playersArr[i].area].join(",");
+        
+        const onWhichMatrix = getAllMatrix(data);
+
+        if (onWhichMatrix[playerMatrix] === undefined) {
+            i++;
+            return
         }
-        if (data.playersArr[i].area === "mainArea2" && data.playersArr[i].id === nickname) {
-            const clientRender = new GridSystemClient(data.sendGridMatrix1);
-            clientRender.render();
-        }
-        if (data.playersArr[i].area === "area2" && data.playersArr[i].id === nickname) {
-            const clientRender = new GridSystemClient(data.sendGridMatrix2);
-            clientRender.render();
-        }
-        if (data.playersArr[i].area === "area3" && data.playersArr[i].id === nickname) {
-            const clientRender = new GridSystemClient(data.sendGridMatrix3);
-            clientRender.render();
-        }
+
+        const clientRender = new GridSystemClient(onWhichMatrix[playerMatrix]);
+        clientRender.render();
 
         i++;
     });
