@@ -331,7 +331,7 @@ class GridSystemClient {
             area1: [{x:2,y:10},{x:17,y:10},{x:20,y:2},{x:20,y:18},{x:23,y:3},{x:23,y:17},{x:30,y:4},{x:30,y:16},{x:34,y:10}],
             area2: [{x:1,y:8},{x:10,y:10},{x:13,y:1},{x:21,y:13}],
             area3: [{x:16,y:2}],
-            area4: [{x:7,y:8}]
+            area4: [{x:1,y:4},{x:1,y:15},{x:13,y:1},{x:16,y:15},{x:28,y:1},{x:28,y:12}]
         }
 
         this.p1 = { color: "grey", lable: 2, id: this.students[0] };
@@ -447,8 +447,8 @@ class GridSystemClient {
                 redDoor2: {x:1, y:3},
             },
             17: {
-                redDoor1: {x:1, y:5},
-                redDoor2: {x:12, y:12}
+                redDoor1: {x:3, y:1},
+                redDoor2: {x:26, y:15}
             }
         }
 
