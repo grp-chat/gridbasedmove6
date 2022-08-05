@@ -351,6 +351,9 @@ class GridSystem {
         } else if (area === "mainArea") {
             plyrSlot.y = 1;
             plyrSlot.x = 1;
+        } else if (area === "area4") {
+            plyrSlot.y = 1;
+            plyrSlot.x = 30;
         }
         
         this.matrix[plyrSlot.y][plyrSlot.x] = plyrSlot.lable;
@@ -540,6 +543,15 @@ io.sockets.on('connection', function (sock) {
         const gridSysKey = getPlayerObjectKey(data);
         gridSystem[gridSysKey].area = "area2";
         gridSystem.transitionToAnotherArea2("area2", gridSystem[gridSysKey]);
+
+        gridSystem.emitToUsers();
+        
+    });
+    sock.on('teleportPlayerArea4', (data) => {
+
+        const gridSysKey = getPlayerObjectKey(data);
+        gridSystem[gridSysKey].area = "area4";
+        gridSystem.transitionToAnotherArea2("area4", gridSystem[gridSysKey]);
 
         gridSystem.emitToUsers();
         

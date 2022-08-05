@@ -258,7 +258,8 @@ const allCommands = [
     new fixedCommand("TCR: mind control off", 'mindControlOff'),
     new idCommand("TCR: go a2 ", 'teleportPlayerArea2'),
     new idCommand("TCR: go a1 ", 'teleportPlayerMainArea'),
-    new idCommand("TCR: go a3 ", 'teleportPlayerArea3')
+    new idCommand("TCR: go a3 ", 'teleportPlayerArea3'),
+    new idCommand("TCR: go a4 ", 'teleportPlayerArea4')
     //new fixedCommand("TCR: teleport me out", 'teleportMeOut'),
     //new fixedCommand("TCR: teleport me in", 'teleportMeIn'),
     //new fixedCommand("TCR: number of players", '???'),
