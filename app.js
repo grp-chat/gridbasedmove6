@@ -457,7 +457,8 @@ io.sockets.on('connection', function (sock) {
         
         sock.emit('loadMatrix', { sendGridMatrix1, sendGridMatrix2, sendGridMatrix3, sendGridMatrix4, playersArr });
        
-
+    
+        
         sock.on('keyPress', function (data) {
 
             if (mindControlMode === false) {
