@@ -555,6 +555,7 @@ sock.on('loadMatrix', (data) => {
     });
    
 });
+
 sock.on('sendMatrix', (data) => {
 
     canvasElements = document.querySelectorAll("canvas");
