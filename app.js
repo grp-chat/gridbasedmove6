@@ -453,7 +453,9 @@ io.sockets.on('connection', function (sock) {
         var sendGridMatrix1 = gridSystem.matrixMain;
         var sendGridMatrix2 = gridSystem.matrix2;
         var sendGridMatrix3 = gridSystem.matrix3;
-        sock.emit('loadMatrix', { sendGridMatrix1, sendGridMatrix2, sendGridMatrix3, playersArr });
+        var sendGridMatrix4 = gridSystem.matrix4;
+        
+        sock.emit('loadMatrix', { sendGridMatrix1, sendGridMatrix2, sendGridMatrix3, sendGridMatrix4, playersArr });
        
 
         sock.on('keyPress', function (data) {

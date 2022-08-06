@@ -537,7 +537,7 @@ sock.on('loadMatrix', (data) => {
 
     var i = 0;
     elementsArr.forEach((element) => {
-        element.innerHTML = data.playersArr[i].id + " Stps: " + data.playersArr[i].steps + "/30 || Wllt: " + data.playersArr[i].wallet + "/1000 || Ttl: " + data.playersArr[i].total;
+        element.innerHTML = data.playersArr[i].id + " Stps: " + data.playersArr[i].steps + "/45 || Wllt: " + data.playersArr[i].wallet + "/1000 || Ttl: " + data.playersArr[i].total;
 
         const playerMatrix = [data.playersArr[i].id, data.playersArr[i].area].join(",");
 
@@ -564,7 +564,7 @@ sock.on('sendMatrix', (data) => {
 
     var i = 0;
     elementsArr.forEach((element) => {
-        element.innerHTML = data.playersArr[i].id + " Stps: " + data.playersArr[i].steps + "/30 || Wllt: " + data.playersArr[i].wallet + "/1000 || Ttl: " + data.playersArr[i].total;
+        element.innerHTML = data.playersArr[i].id + " Stps: " + data.playersArr[i].steps + "/45 || Wllt: " + data.playersArr[i].wallet + "/1000 || Ttl: " + data.playersArr[i].total;
 
         const playerMatrix = [data.playersArr[i].id, data.playersArr[i].area].join(",");
         
