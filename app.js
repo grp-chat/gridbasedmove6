@@ -216,7 +216,6 @@ class GridSystem {
         this.moveSwitch = 0;
         
     }
-
     getTheRightMatrix(player) {
         const entrance = {
             [this.area2Entance]: player.lable,
