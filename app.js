@@ -129,7 +129,7 @@ class GridSystem {
         this.matrix4 = matrix4;
         this.cellSize = 40;
         this.padding = 2;
-        this.startingSteps = 500;
+        this.startingSteps = 0;
         this.winY = 11;
         this.winX = 37;
         this.walletMax = 1000;
@@ -458,7 +458,7 @@ io.sockets.on('connection', function (sock) {
         sock.emit('loadMatrix', { sendGridMatrix1, sendGridMatrix2, sendGridMatrix3, sendGridMatrix4, playersArr });
        
     
-        
+
         sock.on('keyPress', function (data) {
 
             if (mindControlMode === false) {
