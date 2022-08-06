@@ -129,7 +129,7 @@ class GridSystem {
         this.matrix4 = matrix4;
         this.cellSize = 40;
         this.padding = 2;
-        this.startingSteps = 100;
+        this.startingSteps = 500;
         this.winY = 11;
         this.winX = 37;
         this.walletMax = 1000;
